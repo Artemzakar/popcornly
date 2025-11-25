@@ -1,0 +1,19 @@
+services:
+  db:
+    image: postgres:15
+    container_name: popcornly_db
+    restart: always
+    environment:
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASS}
+      POSTGRES_DB: ${DB_NAME}
+      LANG: en_US.utf8
+      LC_ALL: en_US.utf8
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    # command: УДАЛЕНО!
+
+volumes:
+  postgres_data:
